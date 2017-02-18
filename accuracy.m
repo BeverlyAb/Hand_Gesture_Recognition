@@ -3,7 +3,7 @@ function [ fraction,incorrect] = accuracy( class, sample_test_dir )
 % names from the training basis folder and knn class output. This also calls gestureName.m
     correct = 0;
     wrong = 0;
-    incorrect = '';
+    incorrect = string('');
     [num_samples, ~] = size(dir(fullfile(sample_test_dir,'*csv')));   
     for n = 1 :num_samples
         % if matrix dimensions don't agree then the gesture name
@@ -17,7 +17,7 @@ function [ fraction,incorrect] = accuracy( class, sample_test_dir )
             correct = correct + 1;
         else
             wrong = wrong + 1;
-            incorrect(wrong,:) = (class(n,:));  
+            incorrect(wrong,:) = string(gestureName(sample_test_dir, n));     
         end        
     end
     fraction = correct / num_samples;

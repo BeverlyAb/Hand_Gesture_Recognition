@@ -1,5 +1,5 @@
-sample_dir = 'C:\Users\Beverly\Desktop\CSE_classes\Senior_Project\Sample_Testing';
-basis_dir = 'C:\Users\Beverly\Desktop\CSE_classes\Senior_Project\Training_Basis';
+sample_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Sample_Testing';
+basis_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Training_Basis';
 distinct = 5;
 
 % Basis of 5 different gestures from a large sample

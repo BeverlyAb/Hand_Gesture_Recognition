@@ -1,4 +1,4 @@
-function [ basis,subjects,ROW,COL ] = oneDirBasis( directory,distinct)
+function [ basis,subjects,ROW,COL ] = oneDirBasis(directory,distinct)
 % Forms a training basis from multiple subjects' .csv files inside a single
 % directory for knnclassify. 
 % Requires a single directory which contains all the data from all subjects
