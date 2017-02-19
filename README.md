@@ -8,6 +8,7 @@ the accuracy of gesture recognition.
 The 8 values can be seen throughout All_Data. FN shows the percentage that a finger bends, meaning that 100 corresponds to a finger being fully bent and 0 corresponds to a finger being open and at rest. 
 
 F1 = pinky, F2 = ring, F3 = middle, F4 = pointer, F5 = thumb
+
 ROLL = rotation along fingertips, PITCH = rotation along outer sides of fingers, YAW = rotation along palm
 
 There are 5 static gestures and 18 volunteers for this project.
