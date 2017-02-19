@@ -17,4 +17,5 @@ Each gesture contributed by each volunteer technically contributes to 98 samples
 
 This will change for dynamic gestures, which have not yet been tested. 
 
+The two main files are knn_accuracy.m (subject inclusive) and knn_accuracy_exclusive_sample.m (subject exclusive). Both call the intermediate functions in this repository. 
 
