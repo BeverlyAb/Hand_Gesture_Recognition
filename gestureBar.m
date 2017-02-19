@@ -1,6 +1,6 @@
 function [ missBar ] = gestureBar( count )
 %Displays a bar graph of each misses per gesture along varying Basis
-%subject sizes
+%Subject Sizes
 figure 
 missBar = bar(count);
 title('Missed Gesture Classification v. Basis Subject Size');

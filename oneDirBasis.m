@@ -1,6 +1,8 @@
 function [ basis,subjects,ROW,COL ] = oneDirBasis(directory,distinct,subject_basis_size)
-% Forms a training basis from multiple subjects' .csv files inside a single
+% Forms a training basis from 'subject_basis_size' of subjects' .csv files inside a single
 % directory for knnclassify. 
+% For ex) if subject_basis_size == 3, then the Training Basis is composed
+% of only the first three subjects
 % Requires a single directory which contains all the data from all subjects
 % distinct is the unique number of gestures (ex: 5)
 % It also returns subjects, which is the number of participants

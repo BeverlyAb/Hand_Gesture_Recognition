@@ -10,7 +10,6 @@ group = ['fist   ';'middle ';'pinky  ';'pointer';'thumb  '];
 % Create test sample of from excluded data 
 sample = allSamples(sample_dir, distinct,sampleSubjects,sampleROW,sampleCOL);
 
-
 count_misses = [];
 %Test knn with basis with varying subject sizes
 for i = 1:sampleSubjects
@@ -24,6 +23,5 @@ end
 
 % Graph Accuracy v Basis Subject Size
 accuracyPlot = graphAccuracy(accuracy_rate);
-
 % Graph Missed Gesture Classification v. Basis Subject Size
 missBar = gestureBar(count_misses);

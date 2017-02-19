@@ -1,5 +1,5 @@
 function [ sample] = allSamples( directory, distinct,subjects,ROW,COL )
-% Creates a sample testing from data excluded from the training basis. 
+% Creates a Test Sample from data excluded from the training basis. 
     sampleBasis = dir(fullfile(directory,'*csv'));
     num_files = numel(sampleBasis); 
     
