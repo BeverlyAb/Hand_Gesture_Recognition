@@ -5,4 +5,4 @@ The goal of this project is to test the robustness of k-nearest-neighbor algorit
 training basis, quantity of samples, and relationship of finger flexibility and hand rotation affect
 the accuracy of gesture recoginition.
 
-There are five static gestures and over 15 volunteers for this project.
+There are five static gestures and 18 volunteers for this project.

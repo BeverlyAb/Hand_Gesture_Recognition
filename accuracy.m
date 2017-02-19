@@ -17,7 +17,7 @@ function [ fraction,incorrect] = accuracy( class, sample_test_dir )
             correct = correct + 1;
         else
             wrong = wrong + 1;
-            incorrect(wrong,:) = string(gestureName(sample_test_dir, n));     
+            incorrect(wrong) = string(gestureName(sample_test_dir, n));     
         end        
     end
     fraction = correct / num_samples;

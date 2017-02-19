@@ -10,19 +10,17 @@ group = ['fist   ';'middle ';'pinky  ';'pointer';'thumb  '];
 % Create test sample of from excluded data 
 sample = allSamples(sample_dir, distinct,sampleSubjects,sampleROW,sampleCOL);
 
-
-count_misses = [];
 %Test knn with basis with varying subject sizes
 for i = 1:sampleSubjects
     [basis,total_basis_subjects,ROW,COL] = oneDirBasis(basis_dir,distinct,i);
     %Output Recognition Results
     class = knnclassify(sample,basis,group,1);
     [accuracy_rate(i,:)] = accuracy(class, sample_dir);
-    [~,misses] = accuracy(class,sample_dir);
-    temp = gestureCounter(misses,distinct);
-    count_misses = vertcat(count_misses,temp);
-    temp = []; % reset 
 end
 
-% Graph Accuracy v Basis Subject Size
-accuracyPlot = graphAccuracy(accuracy_rate);
+AvBS_x = linspace(0,1,sampleSubjects);
+title('Accuracy v. Basis Size');
+xlabel('Basis Size(n)');
+ylabel('Accuracy Rate');
+figure 
+plot(AvBS_x,accuracy_rate(:)
