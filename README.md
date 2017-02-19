@@ -12,7 +12,7 @@ F1 = pinky, F2 = ring, F3 = middle, F4 = pointer, F5 = thumb
 ROLL = rotation along fingertips, PITCH = rotation along outer sides of fingers, YAW = rotation along palm
 
 There are 5 static gestures and 18 volunteers for this project.
-The distinct, 5 static gestures tested are the formations of a fist, and the protrusion of the middle, pointer, pinky, or thumb finger.
+The 5 distinct, static gestures tested are the formations of a fist, and the protrusion of the middle, pointer, pinky, or thumb finger.
 Each gesture contributed by each volunteer technically contributes to 98 samples of that specific gesture because there is no movement that is dependent on time. 
 
 This will change for dynamic gestures, which have not yet been tested. 
