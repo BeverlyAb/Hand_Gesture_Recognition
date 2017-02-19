@@ -1,5 +1,5 @@
-%Creates a Training Basis and Testing Sample from a single directory of with 
-% exclusive DATA. This develops an accuracy plot and bar graph of misidentified gestures
+%Creates a Training Basis and Testing Sample from a single directory with 
+% exclusive DATA only. This develops an accuracy plot and bar graph of misidentified gestures
 % with respect to varying Basis subject sizes. 
 
 myDir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data';
