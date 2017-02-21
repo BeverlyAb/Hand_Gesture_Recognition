@@ -1,6 +1,7 @@
 function [ output_args ] = realTime( directory,distinct,image_dir )
 %Creates a Training Basis exclusive DATA only. This is called by Visual
 %Studio in order to have nearly real time gesture recognition.
+%This is still in progress and is inexecutable.
     image_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Gestures_Images';
     directory = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data';
     if (distinct == 5)
