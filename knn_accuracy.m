@@ -9,18 +9,18 @@ distinct = 5;
 group = ['fist   ';'middle ';'pinky  ';'pointer';'thumb  '];    
 
 %call basis to receive subject, ROW, and COL from myDir
-[~,sampleSubjects,sampleROW,sampleCOL] = oneDirBasis(myDir,distinct,16);
+[~,sampleSubjects,sampleROW,sampleCOL] = oneDirBasis(myDir,distinct,9);
 % Create test sample of from excluded data 
 sample = allSamples(myDir, distinct,sampleSubjects,sampleROW,sampleCOL);
-
+%sample = oneSample(myDir,distinct,sampleROW,sampleCOL);
 count_misses = [];
 %Test knn with basis with varying subject sizes
-for i = 1:sampleSubjects
+for i = 1:9
     [basis,total_basis_subjects,ROW,COL] = oneDirBasis(myDir,distinct,i);
     %Output Recognition Results
     class = knnclassify(sample,basis,group,1);
     [accuracy_rate(i,:),misses] = accuracy(class, myDir);
-    temp = gestureCounter(misses,distinct);
+    temp = gestureCounter(misses,distinct,sampleSubjects);
     count_misses = vertcat(count_misses,temp);
 end
 

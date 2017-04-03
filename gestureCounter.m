@@ -1,4 +1,4 @@
-function [ count ] = gestureCounter( miss_array, distinct )
+function [ count ] = gestureCounter( miss_array, distinct, sampleSize )
 %Counts the number of incorrect classifications per distinct gesture
     count = zeros(1,distinct);
     if (distinct == 5)
@@ -21,6 +21,8 @@ function [ count ] = gestureCounter( miss_array, distinct )
             count(1,5) = count(1,5) + 1;
         end
     end
- 
+    
+    for i = 1: distinct
+        count(1,i) = (sampleSize - count(1,i)) / sampleSize;
+    end
 end
-

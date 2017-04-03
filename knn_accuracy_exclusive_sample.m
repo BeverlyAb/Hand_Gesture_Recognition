@@ -21,7 +21,7 @@ for i = 1:sampleSubjects
     %Output Recognition Results
     class = knnclassify(sample,basis,group,1);
     [accuracy_rate(i,:),misses] = accuracy(class, sample_dir);
-    temp = gestureCounter(misses,distinct);
+    temp = gestureCounter(misses,distinct,sampleSubjects);
     count_misses = vertcat(count_misses,temp);
 end
 
