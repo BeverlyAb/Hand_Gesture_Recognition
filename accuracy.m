@@ -1,7 +1,7 @@
 function [ fraction,incorrect] = accuracy( class, sample_test_dir )
 % Outputs the accuracy of the gesture recognition, based on the file
 % names from the training basis folder and knn class output. This also returns an array
-% of the misidentified gestures. Note this also calls gestureName.m
+% of the correct gestures. Note this also calls gestureName.m
     correct = 0;
     wrong = 0;
     incorrect = string('');
