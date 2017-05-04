@@ -2,7 +2,8 @@
 % exclusive DATA only. This develops an accuracy plot and bar graph of misidentified gestures
 % with respect to varying Basis subject sizes. 
 
-myDir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data';
+myDir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data'; 
+
 distinct = 5;
 
 % Basis of 5 different gestures 
