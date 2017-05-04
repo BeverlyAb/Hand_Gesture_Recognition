@@ -1,8 +1,8 @@
 %input_dir = 'C:\Users\004737953\Documents\MATLAB\VMG\Gesture_CSV';
-input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data';
-% 13 volunteers (A-M) in train, 5 volunteer (N-R) in test sample
-train_volunteers = 13;
-sample_volunteers = 5;
+input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Square_Data';
+% 13 volunteers (A-M no L) in train, 5 volunteer (N-R) in test sample
+train_volunteers = 12;
+sample_volunteers = 4;
 distinct = 5;
 
 ex_samp = sample_volunteers*distinct;
@@ -19,8 +19,10 @@ index = 1;
         %    gesture(:,index) = filename(:);
          %   index = index + 1;
       %  end
-        filename = csvread(fullfile(input_dir, filenames(i).name),1, 1,[1, 1, 8, 8]);
-            gesture(:,index) = filename(:);
+        fullfile(input_dir, filenames(i).name);
+        filename = csvread(fullfile(input_dir, filenames(i).name),1,1,[1,1,98,8] );
+        filename = reshape(filename, 28,28);
+        gesture(:,index) = filename(:);
              index = index + 1;
     end
    
@@ -39,8 +41,8 @@ index = 1;
      for n = num_images + 1: num_images + ex_samp
         %removes time(col) and name(row)
      %   filename = csvread(fullfile(input_dir, filenames(n).name),8*j - 7, 1,[8*j-7, 1, 8*j, 8]);
-         filename = csvread(fullfile(input_dir, filenames(n).name),1, 1,[1, 1, 8, 8]);    
-        fullfile(input_dir, filenames(n).name); 
+         filename = csvread(fullfile(input_dir, filenames(n).name),1, 1,[1, 1, 98, 8]);    
+        fullfile(input_dir, filenames(n).name)
         feature_vec = evectors' * (filename(:) - mean_gest);
         similarity_score = arrayfun(@(n) 1 / (1 + norm(features(:,n) - feature_vec)), 1:num_images);
         [match_score, match_ix] = max(similarity_score);
@@ -60,9 +62,9 @@ for i = 1:5
 end
 
 % Graph Accuracy v. Basis Subject Size
-accuracyPlot = graphAccuracy(accuracy_rate);
+%accuracyPlot = graphAccuracy(accuracy_rate);
 % Graph Missed Gesture Classification v. Basis Subject Size
-missBar = gestureBar(count_misses);
+%missBar = gestureBar(count_misses);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     

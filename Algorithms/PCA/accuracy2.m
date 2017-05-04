@@ -7,7 +7,7 @@ function [ fraction,actual, calculated, incorrect] = accuracy2( class, test_dir,
     incorrect = string('');
     [num_samples, ~] = size(dir(fullfile(test_dir,'*csv')));
     start = num_samples - samplesize*5;
-    i = 1;
+    i = 0;
     for n = start + 1:num_samples
         % if matrix dimensions don't agree then the gesture name
         % and identified gesture do not match
