@@ -1,7 +1,7 @@
 %input_dir = 'C:\Users\004737953\Documents\MATLAB\VMG\Gesture_CSV';
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Square_Data';
 % 13 volunteers (A-M no L) in train, 5 volunteer (N-R) in test sample
-train_volunteers = 12;
+train_volunteers = 1;
 sample_volunteers = 4;
 distinct = 5;
 

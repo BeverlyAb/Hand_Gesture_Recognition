@@ -4,7 +4,7 @@ input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data
 filenames = dir(fullfile(input_dir,'*csv'));
 num_images = numel(filenames)-25;
 filename = csvread(fullfile(input_dir, filenames(i).name),1, 1);
-[n,col] = size(filename)
+[n,col] = size(filename);
 % exclude title
 row = n - 1;
 
