@@ -1,4 +1,4 @@
-function [names ] = recog( calc, actual, input_dir, n )
+function [names ] = recog( calc, actual, input_dir, n, train_samp )
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data';
 %Compares the calculated values with the test samples and to attempt to recognize 
 %the most likely gesture (string). 
@@ -11,6 +11,6 @@ for i = 1 : n
            break;
        end
    end
-   names(i,:) = (offset(index, 2));
+   names(i,:) = (offset(index, train_samp));
 end
 end

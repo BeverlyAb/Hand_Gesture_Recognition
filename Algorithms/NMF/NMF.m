@@ -1,10 +1,13 @@
-%NMF with 18 volunteers
+%NMF with 18 volunteers, this works best when test_samp == train_samp
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Grouped_Data';
-[V,test,training_COL] = dataProducer(input_dir);
+test_samp = 5;
+train_samp = 5;
+[V,test,training_COL] = dataProducer(input_dir,train_samp,test_samp);
 rank = 8;  
+[row,col] = size(V);
 % initialize W, H
-W = 2 * rand(8,rank);    % (8 x 8)                                                   
-H = 2 * rand(rank, 180);     % (8 x 180)
+W = 2 * rand(row,rank);    % (8 x 8)                                                   
+H = 2 * rand(rank, col);     % (8 x 180)
 iteration = 1000;
 
 % Run NMF repeatedly until reaching iteration criterion
@@ -20,11 +23,11 @@ V_calc = W*H_calc;
 filenames = dir(fullfile(input_dir,'*csv'));
 V_calc = sum(V_calc);
 test =sum(test);
-names = recog(V_calc, test, input_dir, training_COL);
+names = recog(V_calc, test, input_dir, training_COL, train_samp);
 % pretty arbitrary for loop, no string parsing; all based on Grouped_Data
 % folder format
 for i = 1 : training_COL
-    test_names(i,:) = offset(i, 2);
+    test_names(i,:) = offset(i, train_samp);
 end    
 NMF_acc = NMF_accuracy(test_names, names, training_COL);
 
