@@ -1,23 +1,20 @@
-function [ NMF_acc ] = NMF()
-%NMF with 18 volunteers, this works best when test_samp == train_samp
 
-% 
+%Due to NMF updating technique, accuracy rate varies, despite constant
+%training samples. This takes the average NMF_accuracy.
+
+for i = 1: 1
+    NMF_acc(i) = NMF();    
+end
+NMF_acc = mean(NMF_acc);
+
+
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Grouped_Data';
 test_samp = 5;
 train_samp = 5;
+rank = 8;
 [V,test,training_COL] = dataProducer(input_dir,train_samp,test_samp);
-rank = 8;  
-[row,col] = size(V);
- % initialize W, H
-W = 2 * rand(row,rank);    % (8 x 8)                                                   
-H = 2 * rand(rank, col);     % (8 x 180)
-iteration = 1000;
+[W,H] = nnmf(V, rank);
 
-% Run NMF repeatedly until reaching iteration criterion
-for ii = 1:iteration
-   W = W.*(V*H')./(W*H*H'+ 1*10.^(-100));
-   H = H.*(W'*V)./(W'*W*H + 1*10.^(-100)); 
-end
 H_calc = pinv(W)*test;
 % Create calculated sample from calculated H to make comparison easier
 V_calc = W*H_calc;
@@ -33,6 +30,4 @@ for i = 1 : training_COL
     test_names(i,:) = offset(i, train_samp);
 end
 
-NMF_acc = NMF_accuracy(test_names, names, training_COL);
-end
-
+NMF_DONE = NMF_accuracy(test_names, names, training_COL)

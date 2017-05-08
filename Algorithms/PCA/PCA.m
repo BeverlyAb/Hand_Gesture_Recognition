@@ -15,26 +15,43 @@ train_samp = 5;
 % others? If so, this indicates a dimension reduction is possible. Which of the n
 % variables are most important in the first, second, etc. principal components?
 % Which factors appear with the same or opposite sign as others?
-train_mean = mean(train,2);
-centered = abs(train - train_mean);
-cov = (1 / (training_COL - 1))*(centered*centered.');
-%[wcoeff,~,latent,~,explained] = pca(train,'VariableWeights','variance');
-features = cov' * train;
+% train_mean = mean(train,2);
+% centered = abs(train - train_mean);
+% cov = (1 / (training_COL - 1))*(centered*centered.');
+% %[wcoeff,~,latent,~,explained] = pca(train,'VariableWeights','variance');
+% features = cov' * train;
+% 
+% test_mean = mean(test,2);
+% centered_test = abs(test - test_mean);
+% cov_test = (1 / (training_COL - 1))*(centered_test*centered_test.');
+% %[wcoeff,~,latent,~,explained] = pca(train,'VariableWeights','variance');
+% features_test = cov_test' * test;
 
-test_mean = mean(test,2);
-centered_test = abs(test - test_mean);
-cov_test = (1 / (training_COL - 1))*(centered_test*centered_test.');
-%[wcoeff,~,latent,~,explained] = pca(train,'VariableWeights','variance');
-features_test = cov_test' * test;
+%https://stats.stackexchange.com/questions/229092/how-to-reverse-pca-and-reconstruct-original-variables-from-several-principal-com
+X = test;
+mu = mean(X);
 
-features = sum(features);
-features_test = sum(features_test);
-names = recog(features, features_test, input_dir, training_COL, train_samp);
+[eigenvectors, scores] = pca(X);
+
+nComp = 2;
+% Xhat = scores(:,1:nComp) * eigenvectors(:,1:nComp).';
+Xhat = scores * eigenvectors.';
+Xhat = bsxfun(@plus, Xhat, mu);
+
+Xhat(1,:);
+
+Xhat = sum(Xhat);
+feature_test = sum(train);
+
+% 
+% features = sum(features);
+% features_test = sum(features_test);
+names = recog(Xhat, feature_test, input_dir, training_COL, train_samp);
 % pretty arbitrary for loop, no string parsing; all based on Grouped_Data
 % folder format
 for i = 1 : training_COL
     test_names(i,:) = offset(i, train_samp);
 end    
-PCA_acc = NMF_accuracy(test_names, names, training_COL);
+PCA_acc = NMF_accuracy(test_names, names, training_COL)
 
 

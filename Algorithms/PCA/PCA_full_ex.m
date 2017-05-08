@@ -24,7 +24,7 @@ features = evectors' * gesture;
 for i = 1 : training_COL
     test_names(i,:) = offset(i, train_samp);
 end    
-     PCA_acc = NMF_accuracy(test_names, names, training_COL);
+     PCA_acc = NMF_accuracy(test_names, names, training_COL)
 
     
     
