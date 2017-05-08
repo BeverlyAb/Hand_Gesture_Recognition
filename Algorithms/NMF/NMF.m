@@ -21,7 +21,7 @@ V_calc = W*H_calc;
 
 % Compare V_calc and test
 filenames = dir(fullfile(input_dir,'*csv'));
-V_calc = sum(V_calc);
+V_calc = sum(V_calc); %sum col
 test =sum(test);
 names = recog(V_calc, test, input_dir, training_COL, train_samp);
 % pretty arbitrary for loop, no string parsing; all based on Grouped_Data
