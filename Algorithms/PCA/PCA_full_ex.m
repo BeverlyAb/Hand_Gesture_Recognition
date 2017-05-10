@@ -1,6 +1,7 @@
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Grouped_Data';
 test_samp = 5;
 train_samp = 5;
+distinct = 5;
 [training,test,training_COL] = dataProducer(input_dir,train_samp,test_samp);
 gesture = training;
 mean_gest = mean(gesture,2);  
@@ -24,8 +25,8 @@ features = evectors' * gesture;
 for i = 1 : training_COL
     test_names(i,:) = offset(i, train_samp);
 end    
-     PCA_acc = NMF_accuracy(test_names, names, training_COL)
-
+     [PCA_acc, each_PCA_acc] = NMF_accuracy(test_names, names, training_COL, distinct);
+    PCA_acc
     
     
     

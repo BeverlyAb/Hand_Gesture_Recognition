@@ -7,6 +7,7 @@ for i = 1: 1
 end
 NMF_acc = mean(NMF_acc);
 
+distinct = 5;
 
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Grouped_Data';
 test_samp = 5;
@@ -30,4 +31,5 @@ for i = 1 : training_COL
     test_names(i,:) = offset(i, train_samp);
 end
 
-NMF_DONE = NMF_accuracy(test_names, names, training_COL)
+[NMF_DONE, each_NMF]= NMF_accuracy(test_names, names, training_COL,distinct);
+NMF_DONE

@@ -5,6 +5,7 @@ function [ NMF_acc ] = NMF()
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\Grouped_Data';
 test_samp = 5;
 train_samp = 5;
+distinct = 5;
 [V,test,training_COL] = dataProducer(input_dir,train_samp,test_samp);
 rank = 8;  
 [row,col] = size(V);
@@ -33,6 +34,6 @@ for i = 1 : training_COL
     test_names(i,:) = offset(i, train_samp);
 end
 
-NMF_acc = NMF_accuracy(test_names, names, training_COL);
+NMF_acc = NMF_accuracy(test_names, names, training_COL, distinct);
 end
 
