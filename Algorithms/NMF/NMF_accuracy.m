@@ -21,14 +21,17 @@ function [ overall_accuracy, each_acc] = NMF_accuracy( test_names, calc_names, n
                 count(1,3) = count(1,3) + 1;
             elseif(test_names(n,:) == 'pointer')
                 count(1,4) = count(1,4) + 1;
-            else %(test_names(n,:) == group(1,5))
+            else %(test_names(n,:) == 'thumb  ')
                 count(1,5) = count(1,5) + 1;
            end
         end
     end
+ 
+    buffer = zeros(1);
     for i = 1 : distinct
         each_acc(1,i) = 1 - (count(1,i) / num_samples) ;
+        buffer = each_acc(1,i) + buffer;
     end
-    overall_accuracy = correct / num_samples;
+    overall_accuracy = buffer / distinct;
 end
 

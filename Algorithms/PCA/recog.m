@@ -1,6 +1,6 @@
-function [names ] = recog( calc, actual, input_dir, n, train_samp )
+function [names ] = recog( calc, actual, input_dir, n, train_samp, volunteers )
 input_dir = 'C:\Users\Beverly\Documents\GitHub\Hand_Gesture_Recognition\All_Data';
-%Compares the calculated values with the test samples and to attempt to recognize 
+%Compares the calculated values with the test samples to to recognize 
 %the most likely gesture (string). 
 filenames = dir(fullfile(input_dir,'*csv'));   
 for i = 1 : n
@@ -11,6 +11,6 @@ for i = 1 : n
            break;
        end
    end
-   names(i,:) = (offset(index, train_samp));
+   names(i,:) = (offset(index, train_samp,volunteers));
 end
 end
