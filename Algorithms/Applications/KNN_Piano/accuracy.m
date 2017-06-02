@@ -41,9 +41,9 @@ group = [   'A_chord_sustained  ';
         end
     end
  
-    buffer = zeros(1);
+   buffer = zeros(1);
     for i = 1 : distinct
-        each_acc(1,i) = 1 - (count(1,i) / num_samples) ;
+        each_acc(1,i) =1 -(count(1,i)) / (num_samples/distinct) ;
         buffer = each_acc(1,i) + buffer;
     end
     overall_accuracy = buffer / distinct;

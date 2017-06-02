@@ -1,5 +1,6 @@
 function [ overall_accuracy, each_acc] = accuracy( test_names, calc_names, num_samples, distinct )
-% Outputs accuracy between test names (strings) and caluculated  names
+% THIS IS INCORRECT FOR THIS APPLICATIONS!!!!
+%Outputs accuracy between test names (strings) and caluculated  names
 % given a shared number of samples
     correct = 0;
     %count = zeros(1,distinct);
@@ -27,10 +28,9 @@ function [ overall_accuracy, each_acc] = accuracy( test_names, calc_names, num_s
            n
         end
     end
- 
-    buffer = zeros(1);
+   buffer = zeros(1);
     for i = 1 : distinct
-        each_acc(1,i) = 1 - (count(1,i) / num_samples) ;
+        each_acc(1,i) =1 -(count(1,i)) / (num_samples/distinct) ;
         buffer = each_acc(1,i) + buffer;
     end
     overall_accuracy = buffer / distinct;

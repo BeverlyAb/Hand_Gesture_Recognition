@@ -4,16 +4,8 @@ function [ overall_accuracy, each_acc] = accuracy( test_names, calc_names, num_s
     correct = 0;
     %count = zeros(1,distinct);
     count = zeros(1,distinct);
-    if (distinct == 8)
-      % Basis of 8 different gestures 
-group = [   'B_flat';
-            'B     ';
-            'C     ';
-            'D     ';
-            'E     ';
-            'E_flat'; 
-            'F     ';
-            'G_flat'];  
+    if (distinct == 5)
+      group = ['enter';'i    ';'p    ';'space';'u    '];    
     end
        %else specify other gestures by hardcoding it
        
@@ -21,28 +13,22 @@ group = [   'B_flat';
         if(test_names(n,:) == calc_names(n,:))
             correct = correct + 1;
         else
-            if(test_names(n,:) == 'B_flat')
+            if(test_names(n,:) == 'enter')
                 count(1,1) = count(1,1) + 1;
-            elseif(test_names(n,:) == 'B     ')
+            elseif(test_names(n,:) == 'i    ')
                 count(1,2) = count(1,2) + 1;
-            elseif(test_names(n,:) == 'C     ')
+            elseif(test_names(n,:) == 'p    ')
                 count(1,3) = count(1,3) + 1;
-            elseif(test_names(n,:) == 'D     ')
+            elseif(test_names(n,:) == 'space')
                 count(1,4) = count(1,4) + 1;
-            elseif(test_names(n,:) == 'E     ')
+            else %(test_names(n,:) == 'thumb  ')
                 count(1,5) = count(1,5) + 1;
-            elseif(test_names(n,:) == 'E_flat')
-                count(1,6) = count(1,6) + 1;
-            elseif(test_names(n,:) == 'F     ')
-                count(1,7) = count(1,7) + 1;
-            elseif(test_names(n,:) == 'G_flat')
-                count(1,8) = count(1,8) + 1;    
-           end
+            end
         end
     end
- 
-   buffer = zeros(1);
+    buffer = zeros(1);
     for i = 1 : distinct
+        count
         each_acc(1,i) =1 -(count(1,i)) / (num_samples/distinct) ;
         buffer = each_acc(1,i) + buffer;
     end
